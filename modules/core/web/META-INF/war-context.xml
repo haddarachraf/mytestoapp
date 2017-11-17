@@ -1,0 +1,18 @@
+<Context>
+
+    <!-- Database connection -->
+    <Resource
+      name="jdbc/CubaDS"
+      type="javax.sql.DataSource"
+      maxTotal="20"
+      maxIdle="2"
+      maxWaitMillis="5000"
+      driverClassName="org.postgresql.Driver"
+      url="jdbc:postgresql://lfqyoxvwtirmaz:3e20c9da4a6142c2508cb60eed143eeca4d291d236fb95d614477ec3de6107c4@ec2-50-16-199-246.compute-1.amazonaws.com/d1ins1dn62pp4m"
+      username="lfqyoxvwtirmaz"
+      password="3e20c9da4a6142c2508cb60eed143eeca4d291d236fb95d614477ec3de6107c4"/>
+
+    <!-- Switch off session serialization -->
+    <Manager pathname=""/>
+
+</Context>

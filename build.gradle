@@ -41,7 +41,7 @@ dependencies {
 
 }
 
-def hsql = 'org.hsqldb:hsqldb:2.2.9'
+def postgres = 'org.postgresql:postgresql:9.4.1212'
 
 configure([globalModule, coreModule, guiModule, webModule]) {
     apply(plugin: 'java')
@@ -79,8 +79,8 @@ configure(coreModule) {
     dependencies {
         compile(globalModule)
         provided(servletApi)
-        jdbc(hsql)
-        testRuntime(hsql)
+        jdbc(postgres)
+        testRuntime(postgres)
 
     }
 
@@ -101,19 +101,19 @@ configure(coreModule) {
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
-        dbms = 'hsql'
-        host = 'localhost'
-        dbName = 'demo'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbms = 'postgres'
+        host = 'lfqyoxvwtirmaz:3e20c9da4a6142c2508cb60eed143eeca4d291d236fb95d614477ec3de6107c4@ec2-50-16-199-246.compute-1.amazonaws.com'
+        dbName = 'd1ins1dn62pp4m'
+        dbUser = 'lfqyoxvwtirmaz'
+        dbPassword = '3e20c9da4a6142c2508cb60eed143eeca4d291d236fb95d614477ec3de6107c4'
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms = 'hsql'
-        host = 'localhost'
-        dbName = 'demo'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbms = 'postgres'
+        host = 'lfqyoxvwtirmaz:3e20c9da4a6142c2508cb60eed143eeca4d291d236fb95d614477ec3de6107c4@ec2-50-16-199-246.compute-1.amazonaws.com'
+        dbName = 'd1ins1dn62pp4m'
+        dbUser = 'lfqyoxvwtirmaz'
+        dbPassword = '3e20c9da4a6142c2508cb60eed143eeca4d291d236fb95d614477ec3de6107c4'
     }
 }
 
@@ -205,3 +205,12 @@ task wrapper(type: Wrapper) {
 }
 
 apply from: 'extra.gradle'
+
+task buildWar(type: CubaWarBuilding) {
+    webXmlPath = 'modules/web/web/WEB-INF/single-war-web.xml'
+    includeJdbcDriver = true
+    coreContextXmlPath = 'modules/core/web/META-INF/war-context.xml'
+    appProperties = ['cuba.automaticDatabaseUpdate' : true]
+    includeContextXml = true
+    appHome = '.'
+}
