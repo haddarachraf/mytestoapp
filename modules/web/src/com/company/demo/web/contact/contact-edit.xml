@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.demo.web.contact.ContactEdit"
+        datasource="contactDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.demo.web.contact">
+    <dsContext>
+        <datasource id="contactDs"
+                    class="com.company.demo.entity.Contact"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="contactDs">
+            <column width="250px">
+                <field property="nom"/>
+                <field property="prenom"/>
+                <field property="dateNaissance"/>
+                <field property="email"/>
+                <field property="tel"/>
+                <field property="photo"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
