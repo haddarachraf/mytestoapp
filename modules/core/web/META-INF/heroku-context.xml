@@ -1,0 +1,23 @@
+<Context>
+    <!-- Database connection -->
+    <Resource driverClassName="org.postgresql.Driver"
+              maxIdle="2"
+              maxTotal="20"
+              maxWaitMillis="5000"
+              name="jdbc/CubaDS"
+              password="e13f8e72497d6fb8f451aa8e52e4828293ba0e27b345c9fc512a3d783654de73"
+              type="javax.sql.DataSource"
+              url="jdbc:postgres://kfhjiwxvhotzfy:e13f8e72497d6fb8f451aa8e52e4828293ba0e27b345c9fc512a3d783654de73@ec2-23-23-78-213.compute-1.amazonaws.com:5432/dd3ccqnld09ljd"
+              username="kfhjiwxvhotzfy"/>
+    <!-- Switch off session serialization -->
+    <Manager pathname=""/>
+    <!--<Resource driverClassName="org.hsqldb.jdbc.JDBCDriver"
+          maxIdle="2"
+          maxTotal="20"
+          maxWaitMillis="5000"
+          name="jdbc/CubaDS"
+          password=""
+          type="javax.sql.DataSource"
+          url="jdbc:hsqldb:hsql://localhost/demo"
+          username="sa"/>-->
+</Context>
